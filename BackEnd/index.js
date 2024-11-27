@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 });
 
 // Connect to MongoDB and Start the Server
-mongoose.connect(process.env.url, {
+mongoose.connect('mongodb+srv://nitishKumar:AgroFix@cluster0.f9dsu.mongodb.net/AgroFix?retryWrites=true&w=majority&appName=Cluster0', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
