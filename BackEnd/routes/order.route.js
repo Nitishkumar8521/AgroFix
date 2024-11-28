@@ -21,7 +21,7 @@ orderRoute.get('/get-allOrder', auth, checkAuthorization(['admin']), async(req, 
 
 orderRoute.get('/get-ownOrder',auth, checkAuthorization(['buyer']), async(req, res)=>{
     try {
-        const placedOrder = await orderModel.find({userId:req.loggedUser.userId})
+        const placedOrder = await orderModel.find({userId:req.loggedUser.userId}).populate("orderItems.productId")
         if(!placedOrder){
             return res.status(201).json({msg:"You have not placed any order"})
         }
